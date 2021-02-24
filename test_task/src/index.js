@@ -4,7 +4,7 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-export let $ = require('jquery');
+
 
 ReactDOM.render(
     <React.StrictMode>
