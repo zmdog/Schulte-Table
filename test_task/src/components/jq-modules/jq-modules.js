@@ -19,7 +19,7 @@ export let side_bar_visible = () => {
 export let photo_rendering = ()=>{
     let $photo_selection = $('.photo-selection');
     for(let i = 1; i < 12; i++){
-        $photo_selection.append("<img  src='/public/photos/pic_"+i+".jpg'/>")
+        $photo_selection.append("<img  src='../public/photos/pic_"+i+".jpg'/>")
     }
 
     $photo_selection.children('img').on('click', (e)=>{
