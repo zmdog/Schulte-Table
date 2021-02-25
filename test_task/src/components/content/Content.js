@@ -24,7 +24,7 @@ class Content extends React.Component{
                                 </div>
                                 <div className={"wrapper-dp"}>
                                     <div className={"direction-panel"}>
-                                        //<button><i className={"fa fa-angle-left dp"}></i></button>
+                                        <button><i className={"fa fa-angle-left dp"}></i></button>
                                         <button><i className={"fa fa-angle-right dp"}></i></button>
                                     </div>
                                 </div>
