@@ -1,9 +1,10 @@
 import React from "react"
-import {photo_rendering, movePhotoSelection} from "../jq-modules/jq-modules"
+import {photo_rendering, movePhotoSelection, zoom_manipulate} from "../jq-modules/jq-modules"
 
 
 
 class Content extends React.Component{
+
     componentDidMount(){
         photo_rendering()
     }
@@ -18,9 +19,9 @@ class Content extends React.Component{
                         <div className={"gallery"}>
                             <div className={"photo-current"}>
                                 <div className={"zoom-panel"}>
-                                    <button> <i className={"fa fa-plus"}></i> </button>
-                                    <button> <i className={"fa fa-minus"}></i> </button>
-                                    <button> <i className={"fa fa-window-restore"}></i> </button>
+                                    <button onClick={(e)=> zoom_manipulate('plus')} className={"z-p-b plus"}> <i className={"fa fa-plus"}></i> </button>
+                                    <button onClick={(e)=> zoom_manipulate('minus')} className={"z-p-b minus"}> <i className={"fa fa-minus"}></i> </button>
+                                    <button onClick={(e)=> zoom_manipulate('restore')} className={"z-p-b restore"}> <i className={"fa fa-window-restore"}></i> </button>
                                 </div>
                                 <div className={"wrapper-dp"}>
                                     <div className={"direction-panel"}>

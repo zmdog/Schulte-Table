@@ -27,17 +27,35 @@ export let photo_rendering = ()=>{
         let src = e.target.src
 
         $photo_current.css({background: "url("+src+") center no-repeat", backgroundSize:"100%"})
-        console.log(src)
     })
 
 }
 
+export let zoom_manipulate = (elem)=>{
+    let $photo_current = $('.photo-current'),
+        size = $photo_current.css('backgroundSize').split('%')[0];
+    switch (elem){
+        case 'plus':
+            $photo_current.css({backgroundSize:+size + 1 + '%'})
+            break;
+
+        case 'minus':
+            $photo_current.css({backgroundSize:+size - 1 + '%'})
+            break;
+
+        default:
+            $photo_current.css({backgroundSize:'100%'})
+            break;
+    }
+}
+
 export let movePhotoSelection = (e)=>{
 
-        let width = $('.wrapper-ps').width()
-        let x = e.pageX, $wrapperPS = $('.wrapper-ps');
-        let result = Math.round(-100 / (width/x)) +59;
-        if(result >= -20 || result <= -80) return;
+        let $wrapperPS = $('.wrapper-ps'),
+            width = $wrapperPS.width(),
+            x = e.pageX,
+            result = Math.round(-100 / (width/x)) +59;
 
+        if(result >= -20 || result <= -80) return;
         $('.photo-selection').css({left: result + 21 + '%'})
 }

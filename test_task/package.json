@@ -19,7 +19,7 @@
   "scripts": {
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "w-start": "webpack serve --hot",
+    "w-start": "webpack serve --inline --hot",
     "w-build": "webpack --mode production"
   },
   "eslintConfig": {
