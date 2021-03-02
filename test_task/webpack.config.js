@@ -51,7 +51,6 @@ module.exports = {
         port: 8080,
     },
     plugins: [
-        new webpack.HotModuleReplacement(),
         new HtmlWebpackPlugin({
             template: "./public/index.html"
         })
