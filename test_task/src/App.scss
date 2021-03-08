@@ -1,5 +1,6 @@
 
 body{
+    overflow: overlay;
     width: 100%;
     font-size: 14px;
     .side-bar{
@@ -87,56 +88,76 @@ body{
                     .photo-current{
                         display: flex;
                         flex-direction: column;
-                        background: url("public/photos/pic_1.jpg") center no-repeat;
+                        background: url("public/photos/pic_1.jpg") no-repeat;
                         background-size:100%;
-                        .zoom-panel{
-                            padding: 0.5vw 0 0 0.5vw;
-                            button:last-child{
-                                margin: 0;
-                            }
+                        background-position-x: 50%;
+                        background-position-y:50%;
+                        transition: 1s ease;
+                        height: 280px;
+                        .wrapper-p{
+                            height: inherit;
                             display: flex;
-                            flex-direction: column;
-                            float:left;
-                            align-items: flex-start;
-                            .z-p-b{
-                                display: flex;
-                                justify-content: center;
-                                flex-direction: column;
-                                background: #00ffff00;
-                                outline: none;
-                                width: 2.5vw;
-                                height: 2.5vw;
-                                border: #c5c5c5 solid 0.1vw;
-                                margin-bottom: 7px;
-                                cursor: pointer;
-                                padding: 0;
-                                color: #c5c5c5;
-                                i{
-                                    width: 100%;
-                                    font-size: 0.7vw;
-                                }
+                            justify-content: center;
+                            align-items: center;
+                            overflow: hidden;
+                            .photo{
+                                height: 100%;
                             }
                         }
-                        .wrapper-dp{
-                            height: 16vw;
-                            display: flex;
-                            .direction-panel{
-                                justify-content: space-between;
+                        .wrapper-panel{
+                            position: absolute;
+                            width: 48%;
+                            .zoom-panel{
+                                padding: 1vw 0 0 0.5vw;
+                                position: absolute;
+                                button:last-child{
+                                    margin: 0;
+                                }
                                 display: flex;
-                                width: 100%;
-                                button{
+                                flex-direction: column;
+                                float:left;
+                                align-items: flex-start;
+                                .z-p-b{
+                                    display: flex;
+                                    justify-content: center;
+                                    flex-direction: column;
                                     background: #00ffff00;
                                     outline: none;
+                                    width: 2.5vw;
+                                    height: 2.5vw;
+                                    border: #c5c5c5 solid 0.1vw;
+                                    margin-bottom: 7px;
                                     cursor: pointer;
-                                    padding: 5px;
-                                    border:none;
+                                    padding: 0;
                                     color: #c5c5c5;
-                                    .dp{
-                                        font-size: 6vw;
+                                    i{
+                                        width: 100%;
+                                        font-size: 0.7vw;
+                                    }
+                                }
+                            }
+                            .wrapper-dp{
+                                height: 280px;
+                                display: flex;
+                                .direction-panel{
+                                    justify-content: space-between;
+                                    display: flex;
+                                    width: 100%;
+                                    button{
+                                        background: #00ffff00;
+                                        outline: none;
+                                        cursor: pointer;
+                                        padding: 5px;
+                                        border:none;
+                                        color: #c5c5c5;
+                                        .dp{
+                                            font-size: 6vw;
+                                        }
                                     }
                                 }
                             }
                         }
+
                     }
                     .navigation-panel{
                         background: #333333;
@@ -148,13 +169,22 @@ body{
                             overflow: hidden;
                             width:100%;
                             .wrapper-w-ps{
-                                width: 236.8%;
+                                width: 218%;
                                 height: 100%;
                                 .photo-selection{
                                     height: 100%;
                                     width: 100%;
                                     display: flex;
                                     position: relative;
+                                    img{
+                                        border: #333333 solid 0.3vw;
+                                        &:first-child{
+                                            border-left: 0;
+                                        }
+                                        &:last-child{
+                                            border-right: 0;
+                                        }
+                                    }
                                 }
                             }
 

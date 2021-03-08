@@ -4,7 +4,7 @@ export let side_bar_hidden = ()=> {
 
     $('.side-bar').css({left: "-22vw"})
     $('.wrapper-content').css({left: "0%"})
-    $('body').css({overflow:"scroll"})
+    $('body').css({overflow:"overlay"})
     $('.wrapper-shadow').css({visibility:"hidden",background: "#01010000"})
 }
 
@@ -23,28 +23,36 @@ export let photo_rendering = ()=>{
     }
 
     $photo_selection.children('img').on('click', (e)=>{
-       let $photo_current = $('.photo-current')
-        let src = e.target.src
-
-        $photo_current.css({background: "url("+src+") center no-repeat", backgroundSize:"100%"})
+       let $photo_current = $('.photo-current').children('.wrapper-p').children('.photo'),
+           src = e.target.src
+        $photo_current.attr('src', src)
     })
 
 }
 
 export let zoom_manipulate = (elem)=>{
-    let $photo_current = $('.photo-current'),
-        size = $photo_current.css('backgroundSize').split('%')[0];
+    let $photo_current = $('.photo-current').children('.wrapper-p').children('.photo'),
+        sizeH = $photo_current.css('height').split('px')[0],
+        sizeW = $photo_current.css('width').split('px')[0];
+
+    let width = ($photo_current.css('width').split('px')[0] / 100) * 5,
+        height = ($photo_current.css('height').split('px')[0] / 100) * 5;
+
+
     switch (elem){
         case 'plus':
-            $photo_current.css({backgroundSize:+size + 1 + '%'})
+            $photo_current.css({height:+sizeH + height + 'px'});
+            $photo_current.css({width:+sizeW + width + 'px'})
             break;
 
         case 'minus':
-            $photo_current.css({backgroundSize:+size - 1 + '%'})
+            $photo_current.css({height:sizeH - height + 'px'});
+            $photo_current.css({width:sizeW - width + 'px'})
             break;
 
         default:
-            $photo_current.css({backgroundSize:'100%'})
+            $photo_current.css({height: '100%'});
+            $photo_current.css({width: 'auto'})
             break;
     }
 }
