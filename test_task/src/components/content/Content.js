@@ -8,10 +8,11 @@ class Content extends React.Component{
     componentDidMount(){
         photo_rendering()
         $(document).ready(function(){
-            let $photo_current = $('.photo-current');
+            let $photo_current = $('.photo-current'),
+                $photo = $photo_current.children('.wrapper-p').children('.photo');
+
             $photo_current.bind('mousewheel', function(e){
-                let $photo = $photo_current.children('.wrapper-p').children('.photo'),
-                    sizeH = $photo.css('height').split('px')[0],
+                let sizeH = $photo.css('height').split('px')[0],
                     sizeW = $photo.css('width').split('px')[0];
 
                 let width = ($photo.css('width').split('px')[0] / 100) * 2,
@@ -27,48 +28,31 @@ class Content extends React.Component{
             });
 
             $photo_current.bind('mouseover', function(e){
+
                 $('body').css({overflow:'hidden'})
                 $(this).css({transition: 'none'})
             });
+
             $photo_current.bind('mouseout', function(e){
                 $('body').css({overflow:'overlay'})
                 $(this).css({transition: '1s ease'})
             });
-            $photo_current.bind('mousedown', function(e){
-                let $content = $(this),
-                    width = $content.width(),
-                    spaceX = e.clientX - $(this).css('background-position-x').split('%')[0];
 
+            $photo_current.bind('mousedown', function(e){
+                let spaceX = e.clientX - $photo.css('left').split('px')[0],
+                    spaceY = e.clientY - $photo.css('top').split('px')[0];
 
                 $photo_current.bind('mousemove', function(e){
                     let pageX = e.pageX,
-                        mouse = 0,
-                        $position = $(this).css('background-position-x').split('%')[0],
-                        background_size = $(this).css('background-size').split('%')[0],
-                        resultX = mouse + $position,
-                        result_x = pageX - spaceX + '%';
-                    //resultX = mouse + $position;
-                    /*if( background_size <= 100){
-                        resultX = mouse + $position;
-                    }else{
-                        resultX = mouse - $position;
-                    }*/
-
-                    console.log(result_x);
-                    $(this).css({'background-position-x': result_x})
-
-                    //mouse > 50? resultX = mouse + $position : resultX = mouse - $position;
-
-
+                        pageY = e.pageY,
+                        resultX = pageX - spaceX + 'px',
+                        resultY = pageY - spaceY + 'px';
+                    $photo.css({'left': resultX, 'top':resultY})
                 });
 
 
             });
-            $('.photo-current').bind('mouseup', function(e){
-                console.log('отпустили')
-
-
-
+            $photo_current.bind('mouseup', function(e){
                 $('.photo-current').unbind('mousemove');
             });
             
