@@ -18,9 +18,17 @@ export let side_bar_visible = () => {
 
 export let photo_rendering = ()=>{
     let $photo_selection = $('.photo-selection');
-    for(let i = 1; i < 12; i++){
+    for(let i = 1; i <= 11; i++){
         $photo_selection.append("<img  src='../public/photos/pic_"+i+".jpg'/>")
     }
+
+    let img_arr = $photo_selection.children('img'),
+        margins = 0.6*(img_arr.length-1),
+        width_photos=9 * img_arr.length;
+
+    $photo_selection.parent().css({'width':(width_photos + margins) +'vw'})
+
+
 
     $photo_selection.children('img').on('click', (e)=>{
        let $photo_current = $('.photo-current').children('.wrapper-p').children('.photo'),
@@ -59,13 +67,18 @@ export let zoom_manipulate = (elem)=>{
 
 export let movePhotoSelection = (e)=>{
 
-        let $wrapperPS = $('.wrapper-ps'),
-            width = $wrapperPS.width(),
-            x = e.pageX,
-            result = Math.round(-100 / (width/x)) +59;
+        let width_ps = $('.wrapper-ps').width(),
+            width_w_ps = $('.wrapper-w-ps').width(),
+            x = e.clientX,
+            width = width_w_ps - width_ps,
+            pxs = width / 100 * 14,
 
-        if(result >= -20 || result <= -80) return;
-        $('.photo-selection').css({left: result + 21 + '%'})
+            // перемещаю дочерний блок в процентном соотношении к родителю с учетом погрешностей
+            percent = Math.round(-100 / (width_ps/x)) + 60,
+            result = Math.round((width+pxs*5.15) / 100 * (percent + 21))
+
+        if(percent < -20 && percent > -80) $('.photo-selection').css({left: (result) + 'px'});
+
 }
 
 export let binding_events =()=>{
@@ -101,21 +114,29 @@ export let binding_events =()=>{
         });
 
         $photo_current.bind('mousedown', function(e){
-            let spaceX = e.clientX - $photo.css('left').split('px')[0],
-                spaceY = e.clientY - $photo.css('top').split('px')[0];
 
-            $photo_current.bind('mousemove', function(e){
-                let pageX = e.pageX,
-                    pageY = e.pageY,
-                    resultX = pageX - spaceX + 'px',
-                    resultY = pageY - spaceY + 'px';
-                $photo.css({'left': resultX, 'top':resultY})
-            });
+            $(e.target).bind('mousedown', function(e){
+
+                let spaceX = e.clientX - $photo.css('left').split('px')[0],
+                    spaceY = e.clientY - $photo.css('top').split('px')[0];
+
+                $(e.target).bind('mousemove', function(e){
+
+                    let pageX = e.pageX,
+                        pageY = e.pageY,
+                        resultX = pageX - spaceX + 'px',
+                        resultY = pageY - spaceY + 'px';
+                    $photo.css({'left': resultX, 'top':resultY})
+                })
+            })
 
 
         });
+
         $photo_current.bind('mouseup', function(e){
-            $('.photo-current').unbind('mousemove');
+            $(e.target).bind('mouseup', function(e){
+                $(e.target).unbind('mousemove');
+            })
         });
 
     });

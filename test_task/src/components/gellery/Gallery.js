@@ -38,7 +38,6 @@ class Gallery extends React.Component{
                                 <div className={"wrapper-w-ps"}>
                                     <div className={"photo-selection"}> </div>
                                 </div>
-
                             </div>
 
                             <i className={"fa fa-caret-right np"}></i>
