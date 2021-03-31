@@ -8,8 +8,8 @@ class SideBar extends React.Component {
     render() {
 
         return (
-            <div className={"side-bar"}>
-                <a onClick={()=>side_bar_hidden()} className={"btn-hide"}>
+            <div className={"SideBar Wrapper-SideBar"}>
+                <a onClick={()=>side_bar_hidden()} className={"SideBar-Btn_hide"}>
                     <label>Закрыть</label>
                     <i className="fa fa-times fa-2x"> </i>
                 </a>

@@ -1,0 +1,19 @@
+
+.Header{
+  display: flex;
+  background: url("public/cubes.jpg") bottom no-repeat;
+  background-size: 100%;
+  justify-content: space-between;
+  color:#FFF;
+  .fa{
+    padding-top: 3px;
+    margin-right: 3%;
+  }
+  .Btn{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 32%;
+    cursor: pointer;
+  }
+}

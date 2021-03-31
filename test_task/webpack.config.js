@@ -8,7 +8,7 @@ module.exports = {
         extensions: [".wasm", ".ts", ".tsx", ".mjs", ".cjs", ".js", ".json"],
     },
     output: {
-        path: path.join(__dirname, "/dist"),
+        path: path.join(__dirname, "dist"),
         filename: "index_bundle.js"
     },
     module: {
@@ -43,11 +43,11 @@ module.exports = {
         ]
     },
     mode: 'development',
+    target:'web',
     devServer: {
-        historyApiFallback: true,
         open: true,
-        compress: true,
-        hot: true,
+        hot:true,
+        inline:true,
         port: 8080,
     },
     plugins: [

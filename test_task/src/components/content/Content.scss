@@ -1,0 +1,16 @@
+
+
+
+.Content{
+  height: 500px;
+  background:url("public/social.jpg")top repeat;
+  background-size: 50%;
+  padding: 2vw;
+  .Content-Wrapper{
+    background: #645a5a52;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+  }
+}

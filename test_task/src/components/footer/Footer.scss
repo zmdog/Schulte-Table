@@ -1,0 +1,95 @@
+
+.Footer{
+  display:flex;
+  flex-direction: column;
+  background: url("public/cubes.jpg")bottom no-repeat;
+  background-size: 100%;
+  color: #FFF;
+  .Footer-Background{
+    background: #0000003b;
+    hr{
+      height: 12px;
+      border: 0;
+      box-shadow: inset 0 15px 12px -11px rgba(0,0,0,0.80);
+    }
+    .Footer-Info{
+      padding: 2%;
+     .Second_Subscribe{
+        width: 32%;
+        form{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          height: 100%;
+          label{
+            text-align: center;
+            margin-top: -5px;
+          }
+          input{
+            font-size: .9em;
+            width: inherit;
+            height: 30px;
+          }
+        }
+      }
+
+    }
+  }
+  .First{
+    opacity: 1.5;
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  .Second{
+    opacity: 1.5;
+    display:flex;
+    justify-content: space-between;
+    height: 90px;
+    .Second-Wrapper{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .Socials{
+        display: flex;
+        a{
+          color: #FFF;
+        }
+        .Social{
+          margin-right: 12vw;
+          :last-child{
+            margin-right: 0;
+          }
+        }
+        .VK{
+          a{
+            :hover{
+              color: #4688ff;
+            }
+          }
+        }
+        .FB{
+          a{
+            :hover{
+              color: #4688ff;
+            }
+          }
+        }
+        .Inst{
+          a{
+            :hover{
+              color: #f4b7fd;
+            }
+          }
+        }
+        .Youtube{
+          a{
+            :hover{
+              color: #ff0000;
+            }
+          }
+        }
+      }
+    }
+  }
+}

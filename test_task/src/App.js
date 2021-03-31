@@ -8,10 +8,10 @@ import {side_bar_hidden} from "./components/jq-modules/jq-modules"
 class App extends React.Component {
   render(){
     return(
-      <div className={"wrapper"}>
+      <div className={"Wrapper Root__Wrapper"}>
           <SideBar />
-          <div className={"wrapper-content"}>
-              <div onClick={()=>side_bar_hidden()} className={"wrapper-shadow"}></div>
+          <div className={"Wrapper-Page"}>
+              <div onClick={()=>side_bar_hidden()} className={"Wrapper-Shadow"}></div>
               <Header />
               <Content />
               <Footer />

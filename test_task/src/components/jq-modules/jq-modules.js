@@ -2,24 +2,25 @@ export let $ = require('jquery');
 
 export let side_bar_hidden = ()=> {
 
-    $('.side-bar').css({left: "-22vw"})
-    $('.wrapper-content').css({left: "0%"})
+    $('.SideBar').css({left: "-22vw"})
+    $('.Wrapper-Page').css({left: "0%"})
     $('body').css({overflow:"overlay"})
-    $('.wrapper-shadow').css({visibility:"hidden",background: "#01010000"})
+    $('.Wrapper-Shadow').css({visibility:"hidden",background: "#01010000"})
 }
 
 export let side_bar_visible = () => {
 
-    $('.side-bar').css({left: "0"})
-    $('.wrapper-content').css({left: "22vw"})
+    $('.SideBar').css({left: "0"})
+    $('.Wrapper-Page').css({left: "22vw"})
     $('body').css({overflow:"hidden"})
-    $('.wrapper-shadow').css({visibility:"visible", background: "#0101006e"})
+    $('.Wrapper-Shadow').css({visibility:"visible", background: "#0101006e"})
 }
 
-export let photo_rendering = ()=>{
+//модуль галереи
+export let photo_rendering = (src)=>{
     let $photo_selection = $('.photo-selection');
     for(let i = 1; i <= 11; i++){
-        $photo_selection.append("<img  src='../public/photos/pic_"+i+".jpg'/>")
+        $photo_selection.append("<img  src='"+src+"pic_"+i+".jpg'/>")
     }
 
     let img_arr = $photo_selection.children('img'),
@@ -144,9 +145,23 @@ export let binding_events =()=>{
 
 export let change_photo =(direction)=>{
     let $photo_current = $('.photo-current').children('.wrapper-p').children('.photo'),
+        $photo_selection = $('.photo-selection'),
+
         numb_photo = +$photo_current.attr('src').split('_')[1].split('.')[0];
 
-    if(direction === 'left' && numb_photo - 1 > 0) $photo_current.attr('src', '../public/photos/pic_'+ (numb_photo - 1) +'.jpg');
+    if(direction === 'left' && numb_photo - 1 > 0) {
+        $photo_current.attr('src', '../public/photos/pic_' + (numb_photo - 1) + '.jpg')
+        console.log(1)
 
-    if(direction === 'right' && numb_photo + 1 < 12) $photo_current.attr('src', '../public/photos/pic_'+ (numb_photo + 1) +'.jpg')
+        /*if(current_position + photo_width >= 0) $('.photo-selection').css({left: 0 +'px'});
+        else $('.photo-selection').css({left: current_position + photo_width +'px'});*/
+    }
+
+    if(direction === 'right' && numb_photo + 1 < 12) {
+        $photo_current.attr('src', '../public/photos/pic_' + (numb_photo + 1) + '.jpg')
+        console.log(2)
+
+        /*if(current_position - photo_width >= width_photos) $('.photo-selection').css({left: 0 +'px'});
+        else $('.photo-selection').css({left: current_position - photo_width +'px'});*/
+    }
 }

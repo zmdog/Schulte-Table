@@ -1,8 +1,18 @@
 import React from "react"
-import {change_photo, movePhotoSelection, zoom_manipulate} from "../jq-modules/jq-modules";
+import {
+    binding_events,
+    change_photo,
+    movePhotoSelection,
+    photo_rendering,
+    zoom_manipulate
+} from "../jq-modules/jq-modules";
 
 class Gallery extends React.Component{
 
+    componentDidMount(){
+        photo_rendering(this.props.src)
+        binding_events()
+    }
 
     render(){
         return(
@@ -11,7 +21,7 @@ class Gallery extends React.Component{
                 <div className={"gallery"}>
                     <div className={"photo-current"}>
                         <div className={"wrapper-p"}>
-                            <img className={"photo"} src={"../public/photos/pic_1.jpg"}/>
+                            <img className={"photo"} src={""+this.props.src+"pic_1.jpg"}/>
                         </div>
                         <div className={"wrapper-panel"}>
                             <div className={"zoom-panel"}>

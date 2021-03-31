@@ -6,14 +6,16 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div className={"header-parent"}>
-                <a onClick={()=>side_bar_visible()} className={"btn-menu"}>
+            <div className={"Header Wrapper-Header"}>
+                <a onClick={()=>side_bar_visible()} className={"Btn Header-Btn_openMenu"}>
                     <i className="fa fa-bars"> </i>Меню
                 </a>
-                <div className={"header-parent_logo"}>
+                <div className={"Header-Logo"}>
                     <object type="image/svg+xml" data={anim} width="100px"></object>
                 </div>
-                <a className={"header-parent_log-reg"}>Войти/Зарегестрироваться</a>
+                <a className={"Btn Header-Btn_openUser"}>
+                    <i className="fa fa-user"></i>Войти/Зарегестрироваться
+                </a>
             </div>
         )
     }
