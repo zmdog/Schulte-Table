@@ -11,10 +11,9 @@ class Footer extends React.Component {
         return (
             <div className={"Footer Wrapper-Footer"}>
                 <div className={"Footer-Background"}>
-                    <div className={"Background"}></div>
                     <div className={"Footer-Info"}>
                         <div className={"First Main-Info Footer-Info-First"}>
-                            <div className={"Left First-Right"}>
+                            <div className={"Left First-Content"}>
                                 <div className={"Info Left-AboutCompany"}>
                                     <div className={"Info-wrapper"}>
                                         <h>О компании</h>
@@ -28,7 +27,7 @@ class Footer extends React.Component {
                                     <p>{text}</p>
                                 </div>
                             </div>
-                            <div className={"Right First-Right"}>
+                            <div className={"Right First-Content"}>
                                 <div className={"Info Right-Products"}>
                                     <div className={"Info-wrapper"}><
                                         h>Продукты</h>

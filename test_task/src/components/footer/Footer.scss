@@ -1,20 +1,69 @@
+@mixin footer_1224px(){
+  .Footer{
+    font-size: .9em;
+  }
+}
+
+@mixin footer_1824px(){
+  .Footer{
+    font-size: 1em;
+  }
+}
+
+@mixin footer_768px(){
+  .Footer{
+    font-size: .8em;
+    .First{
+      flex-direction: column;
+    }
+  }
+}
+
+@mixin footer_320px(){
+  .Footer{
+    .First{
+      flex-direction: column;
+      .First-Content{
+        flex-direction: column;
+      }
+    }
+    .Second{
+      display: flex;
+      flex-direction: column;
+      .Second-Wrapper{
+        align-items: center;
+        .Socials{
+          .Youtube{
+            margin: 0 !important;
+          }
+        }
+      }
+      .Second_Subscribe{
+        width: auto !important;
+        .Second-Subscribe-Email{
+          height: 4vw !important;
+        }
+      }
+    }
+  }
+}
 
 .Footer{
   display:flex;
   flex-direction: column;
-  font-size: .7em;
   color: #FFF;
   .Footer-Background{
-    .Background{
-      position: absolute;
-      transform: rotate(90deg);
-      background: url("public/cubes.jpg") -154% 51% repeat-x;
-      background-size: 178%;
-      height: 100vw;
-      width: 100%;
-    }
     .Footer-Info{
-      position: absolute;
+      position: relative;
+      &:before{
+        content: "";
+        position: absolute;
+        z-index: -1;
+        background: url("public/cubes_r.jpg") center repeat-y;
+        width: 100%;
+        background-size: 100%;
+        height: 100%;
+      }
       .Main-Info{
         padding: 2%;
         opacity: 1.5;
@@ -23,6 +72,10 @@
       }
       .First{
         margin-bottom: 1vw;
+        display: flex;
+        .First-Content{
+          display: flex;
+        }
         .Info{
           padding: .6vw;
           .Info-wrapper{
@@ -31,7 +84,7 @@
         }
       }
       .Second{
-        height: 8vw;
+        height: auto;
         .Second-Wrapper{
           display: flex;
           flex-direction: column;
@@ -40,7 +93,6 @@
             display: flex;
             a{
               color: #FFF;
-              font-size: 3vw;
             }
             .Social{
               margin-right: 12vw;
