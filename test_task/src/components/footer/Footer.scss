@@ -14,6 +14,7 @@
   .Footer{
     font-size: .8em;
     .First{
+      text-align: center;
       flex-direction: column;
     }
   }
@@ -30,8 +31,12 @@
     .Second{
       display: flex;
       flex-direction: column;
+      label{
+        margin-bottom: 2%;
+      }
       .Second-Wrapper{
         align-items: center;
+        padding: 2%;
         .Socials{
           .Youtube{
             margin: 0 !important;
@@ -39,6 +44,7 @@
         }
       }
       .Second_Subscribe{
+        padding: 2%;
         width: auto !important;
         .Second-Subscribe-Email{
           height: 4vw !important;

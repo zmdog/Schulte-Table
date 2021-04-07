@@ -43,7 +43,8 @@ class Footer extends React.Component {
                             </div>
                         </div>
                         <div className={"Second Main-Info Footer-Info-Second"}>
-                            <div className={"Second-Wrapper"}>Мы в соцсетях:
+                            <div className={"Second-Wrapper"}>
+                                <label>Мы в соцсетях:</label>
                                 <div className={"Socials Second-Socials"}>
                                     <div className={"Social Socials-VK VK"}>
                                         <a href={"http://localhost:8080/"}><i className="fa fa-vk"> </i></a>
